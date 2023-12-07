@@ -5,6 +5,11 @@ class ZCX_EXC_TEST_3_SUB definition
   create public .
 
 public section.
+
+  methods CONSTRUCTOR
+    importing
+      !TEXTID like TEXTID optional
+      !PREVIOUS like PREVIOUS optional .
 protected section.
 private section.
 ENDCLASS.
@@ -12,4 +17,13 @@ ENDCLASS.
 
 
 CLASS ZCX_EXC_TEST_3_SUB IMPLEMENTATION.
+
+
+  method CONSTRUCTOR.
+CALL METHOD SUPER->CONSTRUCTOR
+EXPORTING
+TEXTID = TEXTID
+PREVIOUS = PREVIOUS
+.
+  endmethod.
 ENDCLASS.
